@@ -12,5 +12,4 @@ app.use('/', (req, res) => {
      res.send('Tudo certinho');
 });
 
-
 module.exports = app;

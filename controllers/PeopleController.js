@@ -1,4 +1,6 @@
 const express = require('express');
+const _ = require('lodash');
+const ObjectID = require('valid-objectid');
 const People = require('../models/People');
 
 var router = express.Router();
@@ -35,8 +37,35 @@ router.post('/', function(req, res) {
     });
 
     people.save().then((doc) => {
-        res.send(doc);
+        res.send({doc});
     }, (err) => {
+        res.status(400).send(err);
+    });
+});
+
+router.put('/:id', function(req, res){
+    var id = req.params.id;
+    var body = _.pick(req.body, [
+        'name',       'height',     'mass',
+        'hair_color', 'skin_color', 'eye_color',
+        'birth_year', 'gender',     'homeworld',
+        'films',      'species',    'vehicles',
+        'starships',  'url'
+    ]);
+    body.edited = timestamp();
+
+    if(!ObjectID.isValid(id)){
+        return res.status(404).send('The object id is not valid');
+    }
+
+    People.findByIdAndUpdate(id, {$set:body}, {new: true})
+    .then((doc) => {
+        if(!doc){
+            return res.status(404).send('Failure to update people. ' +
+            'Please check if id exists in database');
+        }
+        res.send({doc});
+    }).catch((err) => {
         res.status(400).send(err);
     });
 });

@@ -5,8 +5,10 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "mongoose": "^4.13.9",
-    "mongoose-type-url": "^1.0.2"
+    "mongoose-type-url": "^1.0.2",
+    "valid-objectid": "0.0.2"
   },
   "devDependencies": {},
   "scripts": {
