@@ -4,6 +4,7 @@
   "description": "Demonstracao de servidor de aplicacao",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "lodash": "^4.17.4",
     "mongoose": "^4.13.9",

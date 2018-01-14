@@ -61,10 +61,27 @@ router.put('/:id', function(req, res){
     People.findByIdAndUpdate(id, {$set:body}, {new: true})
     .then((doc) => {
         if(!doc){
-            return res.status(404).send('Failure to update people. ' +
+            return res.status(404).send('Failure to update person. ' +
             'Please check if id exists in database');
         }
         res.send({doc});
+    }).catch((err) => {
+        res.status(400).send(err);
+    });
+});
+
+router.delete('/:id', function(req, res){
+    var id = req.params.id;
+    if(!ObjectID.isValid(id)){
+        return res.status(404).send('The object id is not valid');
+    }
+    People.findByIdAndRemove(id)
+    .then((doc) => {
+        if(!doc) {
+            return res.status(404).send('Failure to delete person. ' +
+            'Please check if id exists in database');
+        }
+        res.send('Document deleted. \n ' + doc);
     }).catch((err) => {
         res.status(400).send(err);
     });
