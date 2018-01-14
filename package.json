@@ -1,0 +1,18 @@
+{
+  "name": "gupy",
+  "version": "1.0.0",
+  "description": "Demonstracao de servidor de aplicacao",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.9",
+    "mongoose-type-url": "^1.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Thais Faria",
+  "license": "ISC"
+}
