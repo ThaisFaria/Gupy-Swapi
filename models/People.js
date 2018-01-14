@@ -6,7 +6,9 @@ var Schema = mongoose.Schema;
 var peopleSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'Name field is required']
+        required: [true, 'Name field is required'],
+        minlength: 1,
+        trim: true
     },
     height: {
         type: String,
@@ -70,14 +72,12 @@ var peopleSchema = new Schema({
         required: [true, 'Url field is required']
     },
     created: {
-        type: Date,
-        required: [true, 'Created field is required'],
-        default: Date.now
+        type: String,
+        required: [true, 'Created field is required']
     },
     edited: {
-        type: Date,
-        required: [true, 'Edited field is required'],
-        default: Date.now
+        type: String,
+        required: [true, 'Edited field is required']
     }
 }, {collection: 'people'});
 
