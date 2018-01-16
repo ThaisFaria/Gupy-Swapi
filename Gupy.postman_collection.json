@@ -1,0 +1,139 @@
+{
+	"info": {
+		"name": "Gupy",
+		"_postman_id": "5b292e98-87ae-24cb-4868-bf54dc791429",
+		"description": "Requisições para a API com busca no MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Get Port 3000 for standard message"
+			},
+			"response": []
+		},
+		{
+			"name": "GET /people",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/people",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"people"
+					]
+				},
+				"description": "Get all people from database"
+			},
+			"response": []
+		},
+		{
+			"name": "POST /people",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Thais Farwalker\",\r\n    \"height\" : \"156\",\r\n    \"mass\" : \"67\",\r\n    \"hair_color\" : \"brown\",\r\n    \"skin_color\" : \"brown\",\r\n    \"eye_color\" : \"brown\",\r\n    \"birth_year\" : \"5ABY\",\r\n    \"gender\" : \"female\",\r\n    \"homeworld\" : \"https://swapi.co/api/planets/8/\",\r\n    \"films\" : [ \r\n        \"https://swapi.co/api/films/7/\"\r\n    ],\r\n    \"species\" : [ \r\n        \"https://swapi.co/api/species/1/\"\r\n    ],\r\n    \"vehicles\" : [ \r\n        \"https://swapi.co/api/vehicles/14/\", \r\n        \"https://swapi.co/api/vehicles/30/\"\r\n    ],\r\n    \"starships\" : [ \r\n        \"https://swapi.co/api/starships/12/\", \r\n        \"https://swapi.co/api/starships/22/\"\r\n    ],\r\n    \"url\" : \"https://swapi.co/api/people/90/\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/people",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"people"
+					]
+				},
+				"description": "Create a new person on the people collection"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /people/:id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"height\" : \"166\",\r\n    \"starships\": \"https://swapi.co/api/starships/10/\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/people/{{record}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"people",
+						"{{record}}"
+					]
+				},
+				"description": "Update a person on the people collection"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /people/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/people/{{record}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"people",
+						"{{record}}"
+					]
+				},
+				"description": "Delete a person on the people collection"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "b296a91d-59db-4d02-9635-16d6bac1c947",
+			"key": "address",
+			"value": "http://localhost/3000",
+			"type": "text"
+		}
+	]
+}
