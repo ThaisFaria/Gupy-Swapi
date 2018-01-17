@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-require('mongoose-type-url');
 
 var Schema = mongoose.Schema;
 
@@ -40,35 +39,33 @@ var peopleSchema = new Schema({
         required: [true, 'Gender field is required']
     },
     homeworld: {
-        type: mongoose.SchemaTypes.Url,
+        type: String,
         required: [true, 'Homeworld field is required']
     },
     films: [
         {
-            type: mongoose.SchemaTypes.Url,
+            type: String,
             required: [true, 'Films field is required']
         }
     ],
     species: [
         {
-            type: mongoose.SchemaTypes.Url,
+            type: String,
             required: [true, 'Species field is required']
         }
     ],
     vehicles: [
         {
-            type: mongoose.SchemaTypes.Url,
-            required: [true, 'Vehicles field is required']
+            type: String
         }
     ],
     starships: [
         {
-            type: mongoose.SchemaTypes.Url,
-            required: [true, 'Starships field is required']
+            type: String
         }
     ],
     url: {
-        type: mongoose.SchemaTypes.Url,
+        type: String,
         required: [true, 'Url field is required']
     },
     created: {

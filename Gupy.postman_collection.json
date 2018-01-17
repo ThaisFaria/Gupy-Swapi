@@ -126,11 +126,32 @@
 				"description": "Delete a person on the people collection"
 			},
 			"response": []
+		},
+		{
+			"name": "GET /people/field/:text",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/people/field/species%2F2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"people",
+						"field",
+						"species%2F2"
+					]
+				},
+				"description": "Get all people from database that match at least one property with the query params"
+			},
+			"response": []
 		}
 	],
 	"variable": [
 		{
-			"id": "b296a91d-59db-4d02-9635-16d6bac1c947",
+			"id": "7ae4b1c4-cbae-45ef-b79a-591c49fe9975",
 			"key": "address",
 			"value": "http://localhost/3000",
 			"type": "text"

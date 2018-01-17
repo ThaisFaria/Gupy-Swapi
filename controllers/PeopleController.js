@@ -16,6 +16,30 @@ router.get('/', function (req, res) {
     });
 });
 
+router.get('/field/:text', function (req, res) {
+    var text = req.params.text;
+    People.find({
+        $or: [ { name: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { height: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { mass: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { hair_color: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { skin_color: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { eye_color: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { birth_year: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { gender: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { homeworld: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { films: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { species: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { vehicles: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { starships: {$regex: '.*' + text + '.*', $options: 'i'} },
+               { url: {$regex: '.*' + text + '.*', $options: 'i'} }
+             ]
+    }, function(err, people){
+        if(err) return res.status(500).send('There was a problem finding people.');
+        res.status(200).send(people);
+    });
+});
+
 router.post('/', function(req, res) {
     var people = new People({
         name: req.body.name,
